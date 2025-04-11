@@ -1,0 +1,51 @@
+# 🍏 Welcome to the Fruit Shop Calculator 🍏
+
+def calculate_total_cost():
+    """
+    This function calculates the total cost of fruits based on user input.
+    It loops through a dictionary of fruit prices, asks the user for the quantity of each fruit,
+    and then calculates the total bill.
+    """
+
+    # Dictionary of available fruits and their prices per unit ($)
+    fruit_prices = {
+        'apple': 1.5,
+        'durian': 50,
+        'jackfruit': 80,
+        'kiwi': 1,
+        'rambutan': 1.5,
+        'mango': 5
+    }
+
+    total_cost = 0  # Initialize total cost
+
+    print("\n🛒 Welcome to the Fruit Shop! Let's calculate your total cost. 🛒\n")
+
+    for fruit, price in fruit_prices.items():
+        while True:  # Ensure valid input
+            try:
+                quantity = input(f"How many ({fruit}) do you want to buy? (Enter 0 if none): ")
+
+                if quantity.strip() == "":  # Allow user to exit early
+                    print("\n🚪 Exiting early. Calculating total cost...\n")
+                    break
+
+                quantity = int(quantity)
+
+                if quantity < 0:
+                    print("❌ Please enter a valid non-negative number.")
+                    continue
+
+                total_cost += price * quantity
+                break  # Exit the loop if input is valid
+
+            except ValueError:
+                print("⚠️ Invalid input! Please enter a valid integer.")
+
+    # Print the total cost with formatting
+    print(f"\n💰 Your total is ${total_cost:.2f}. Thank you for shopping! 🍎🥭\n")
+
+
+# Run the program
+if __name__ == "__main__":
+    calculate_total_cost()

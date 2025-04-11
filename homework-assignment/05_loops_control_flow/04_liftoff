@@ -1,0 +1,19 @@
+import time  # ⏳ Importing time module to add a delay for effect
+
+def countdown():
+    """🚀 Prints a countdown from 10 to 1, then prints 'Liftoff!'."""
+    print("🛸 Initiating spaceship countdown...")
+
+    for i in range(10, 0, -1):  # 🔄 Loop from 10 down to 1
+        print(i, end=" ", flush=True)  # ✅ Print countdown on same line
+        time.sleep(1)  # ⏳ Pause for 1 second (to simulate real countdown)
+
+    print("🚀 Liftoff!")  # ✅ Final liftoff message
+
+# 🚀 Main function
+def main():
+    countdown()
+
+# 🔥 Run the program
+if __name__ == "__main__":
+    main()

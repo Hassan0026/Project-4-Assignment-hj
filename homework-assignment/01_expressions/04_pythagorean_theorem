@@ -1,0 +1,49 @@
+import math
+
+def calculate_hypotenuse():
+    """
+    This function prompts the user for the two perpendicular side lengths of a
+    right triangle and calculates the hypotenuse using the Pythagorean theorem.
+    """
+    print("\n📏 Pythagorean Theorem Calculator 📏")
+
+    while True:
+        try:
+            # Get the two side lengths from the user
+            ab = float(input("🔹 Enter the length of side AB: "))
+            ac = float(input("🔹 Enter the length of side AC: "))
+
+            # Validate input: length should be positive
+            if ab <= 0 or ac <= 0:
+                print("❌ Error: Side lengths must be positive numbers. Try again.")
+                continue
+
+            break  # Exit loop if valid input
+
+        except ValueError:
+            print("❌ Error: Please enter a valid number.")
+
+    # Compute the hypotenuse (BC) using the Pythagorean theorem
+    bc = math.sqrt(ab**2 + ac**2)
+
+    # Display result with 2 decimal places
+    print(f"\n✅ The length of BC (the hypotenuse) is: {bc:.2f} units.\n")
+
+def main():
+    """Main function to run the program."""
+    calculate_hypotenuse()
+
+    # Ask the user if they want another calculation
+    while True:
+        restart = input("🔄 Would you like to calculate another hypotenuse? (yes/no): ").strip().lower()
+        if restart in ["yes", "y"]:
+            calculate_hypotenuse()
+        elif restart in ["no", "n"]:
+            print("\n✅ Thank you for using the Pythagorean Theorem Calculator! 🎯")
+            break
+        else:
+            print("⚠️ Please enter 'yes' or 'no'.")
+
+# Run the program
+if __name__ == "__main__":
+    main()

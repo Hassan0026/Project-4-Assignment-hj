@@ -1,0 +1,47 @@
+import random
+import time
+
+def roll_dice(num_sides: int = 6):
+    """
+    Simulates rolling two dice and prints their total.
+    :param num_sides: Number of sides on each die (default is 6).
+    """
+    die1: int = random.randint(1, num_sides)
+    die2: int = random.randint(1, num_sides)
+    total: int = die1 + die2
+    print(f"\n🎲 Rolling the dice... 🎲")
+    time.sleep(1)  # Adding a delay for effect
+    print(f"🎯 Die 1: {die1} | 🎯 Die 2: {die2}")
+    print(f"🎉 Total of two dice: {total}")
+
+def main():
+    """
+    Main function to simulate rolling dice three times.
+    """
+    print("\n🎩 Welcome to the Dice Simulator! 🎲")
+
+    while True:
+        # Asking user if they want a custom dice size
+        try:
+            num_sides = int(input("\nEnter number of sides for the dice (Press Enter for default 6): ") or 6)
+            if num_sides < 2:
+                print("⚠️ Dice must have at least 2 sides. Setting default (6).")
+                num_sides = 6
+        except ValueError:
+            print("❌ Invalid input! Setting default (6).")
+            num_sides = 6
+
+        print("\n🎯 Rolling two dice, three times...\n")
+
+        for _ in range(3):
+            roll_dice(num_sides)
+
+        # Ask if the user wants to roll again
+        play_again = input("\n🔄 Would you like to roll the dice again? (yes/no): ").strip().lower()
+        if play_again not in ["yes", "y"]:
+            print("\n✅ Thanks for playing! Have a great day! 😊")
+            break
+
+# Run the program
+if __name__ == "__main__":
+    main()

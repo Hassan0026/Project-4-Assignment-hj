@@ -1,0 +1,48 @@
+def is_leap_year(year: int) -> bool:
+    """
+    Determines if a given year is a leap year based on the Gregorian calendar rules.
+
+    A leap year:
+    - Must be divisible by 4
+    - If divisible by 100, it must also be divisible by 400
+    """
+    if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+        return True
+    return False
+
+def main():
+    """ Main function to handle user input and check leap year status """
+    print("📅 Welcome to the Leap Year Checker! 📅\n")
+
+    while True:
+        # Get user input and validate it
+        while True:
+            try:
+                year = int(input("🔹 Enter a year to check if it's a leap year: "))
+                if year < 0:
+                    print("🚨 Please enter a valid positive year.")
+                else:
+                    break  # Exit loop if input is valid
+            except ValueError:
+                print("❌ Invalid input! Please enter a numeric year.")
+
+        # Check and display result
+        if is_leap_year(year):
+            print(f"✅ {year} is a Leap Year! 🎉\n")
+        else:
+            print(f"❌ {year} is NOT a Leap Year.\n")
+
+        # Ask user if they want to check another year
+        while True:
+            restart = input("🔄 Would you like to check another year? (yes/y or no/n): ").strip().lower()
+            if restart in ["yes", "y"]:
+                print("\n🔁 Restarting the program...\n")
+                break  # Restart the loop
+            elif restart in ["no", "n"]:
+                print("\n🎉 Thank you for using the Leap Year Checker! Have a great day! 😊")
+                return  # Exit the program
+            else:
+                print("⚠️ Invalid choice! Please enter 'yes' or 'no'.")
+
+if __name__ == "__main__":
+    main()

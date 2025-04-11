@@ -1,0 +1,23 @@
+# 📌 Predefined affirmation
+AFFIRMATION: str = "I am capable of doing anything I put my mind to."
+
+def get_affirmation():
+    """Prompts the user to type the affirmation correctly."""
+    print(f"📝 Please type the following affirmation: \n👉 {AFFIRMATION}\n")
+
+    while True:
+        user_input: str = input("✍️ Your input: ")
+
+        if user_input.strip() == AFFIRMATION:  # ✅ Check for correct input (strip removes extra spaces)
+            print("🎉 That's right! Keep believing in yourself! 😊")
+            break  # ✅ Exit the loop if correct
+        else:
+            print("❌ That was not the affirmation. Please try again.\n")
+
+# 🚀 Main function
+def main():
+    get_affirmation()
+
+# 🔥 Run the program
+if __name__ == "__main__":
+    main()

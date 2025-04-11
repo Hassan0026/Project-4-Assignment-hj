@@ -1,0 +1,23 @@
+import time
+
+def double_until_100():
+    """🧮 Repeatedly doubles a user-provided number until it reaches or exceeds 100, with a delay."""
+
+    curr_value = float(input("🔢 Enter a number: "))  # ✅ Get input from the user
+
+    print("\n📈 Doubling process (1 second delay per step):")
+
+    while curr_value < 100:  # ✅ Loop until curr_value is 100 or more
+        curr_value *= 2  # 🔄 Double the current value
+        print(int(curr_value), end=" ", flush=True)  # ✅ Print numbers on the same line
+        time.sleep(1)  # ⏳ Add a 1-second delay between each doubling step
+
+    print("\n🎯 Stopping as the number has reached or exceeded 100!")
+
+# 🔥 Main function
+def main():
+    double_until_100()
+
+# 🏁 Run the program
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,78 @@
+"""
+📞 Phonebook Management System 📞
+--------------------------------
+🔹 Add contacts (Name & Phone Number)
+🔹 View all saved contacts
+🔹 Search for a contact using a partial or full name
+🔹 Exit when finished
+
+Developed by: Sahir Ahmed Sheikh
+"""
+
+def read_phone_numbers():
+    """
+    Collects names and phone numbers from the user and stores them in a dictionary.
+    Returns the dictionary containing the phonebook.
+    """
+    phonebook = {}
+
+    while True:
+        name = input("Enter contact name (or press Enter to stop): ").strip()
+        if name == "":
+            break
+
+        number = input(f"Enter phone number for {name}: ").strip()
+        phonebook[name] = number
+
+    return phonebook
+
+
+def print_phonebook(phonebook):
+    """
+    Displays all contacts stored in the phonebook.
+    """
+    if not phonebook:
+        print("\n📌 The phonebook is empty. Add contacts first!\n")
+        return
+
+    print("\n📖 Phonebook Entries:")
+    print("-" * 30)
+    for name, number in phonebook.items():
+        print(f"📌 {name} -> {number}")
+    print("-" * 30)
+
+
+def lookup_numbers(phonebook):
+    """
+    Allows the user to search for a contact’s phone number by full or partial name.
+    """
+    while True:
+        search_query = input("\n🔍 Enter name to look up (or press Enter to stop): ").strip()
+        if search_query == "":
+            break
+
+        matches = {name: number for name, number in phonebook.items() if search_query.lower() in name.lower()}
+
+        if matches:
+            print("\n🔎 Found Contacts:")
+            for name, number in matches.items():
+                print(f"✅ {name}: {number}")
+        else:
+            print(f"❌ No contacts found for '{search_query}'.")
+
+
+def main():
+    """
+    Main function that runs the phonebook program.
+    """
+    print("\n📞 Welcome to the Phonebook Management System! 📞\n")
+
+    phonebook = read_phone_numbers()  # Step 1: Collect contacts
+    print_phonebook(phonebook)  # Step 2: Display all contacts
+    lookup_numbers(phonebook)  # Step 3: Allow searching for contacts
+
+    print("\n📴 Exiting Phonebook. Have a great day! 😊")
+
+
+if __name__ == '__main__':
+    main()

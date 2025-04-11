@@ -1,0 +1,38 @@
+# Program: tiny_mad_libs
+
+
+import itertools
+
+print("🎭 Welcome to the Ultimate Mad Libs Game! Get ready to create hilarious and wacky stories! ✨\n")
+
+# List of sentence starters (rotating order)
+SENTENCE_STARTERS = itertools.cycle([
+    "Once upon a time, I discovered how to create my ",
+    "In a magical world, I built a ",
+    "Using Python, I invented a ",
+    "I love coding! Today, I designed a ",
+    "With a bit of creativity, I created a ",
+    "In an alternate universe, my "
+])
+
+def mad_lib():
+    """Generates a Mad Lib sentence with a rotating sentence starter."""
+    while True:
+        sentence_start = next(SENTENCE_STARTERS)
+
+        adjective: str = input("🎨 Please enter an adjective and press Enter: ").strip().lower()
+        noun: str = input("📦 Please enter a noun and press Enter: ").strip().lower()
+        verb: str = input("🏃 Please enter a verb and press Enter: ").strip().lower()
+
+        mad_lib_sentence = sentence_start + adjective + " " + noun + " that can " + verb + "!"
+
+        print("\n✨ Here’s your Mad Libs sentence! ✨")
+        print(f"📝 {mad_lib_sentence.capitalize()}\n")
+
+        restart = input("🔄 Would you like to create another Mad Lib? (yes/y or no/n): ").strip().lower()
+        if restart not in ["yes", "y"]:
+            print("\n👋 Thanks for playing Mad Libs! Have a great day! 😊")
+            break  # Exit the loop
+
+if __name__ == "__main__":
+    mad_lib()

@@ -1,0 +1,34 @@
+# Program: remainder_division
+
+print("📌 Welcome to the Remainder Division Calculator! 📌\n")
+
+def remainder():
+    while True:  # Loop to restart the program if needed
+        num1: int = int(input("🔢 Please enter the dividend (number to be divided): "))
+
+        # Ensure the divisor is not zero
+        while True:
+            num2: int = int(input("🔢 Please enter the divisor (number to divide by): "))
+            if num2 == 0:
+                print("❌ Error: The divisor cannot be zero. Please enter a valid number!")
+            else:
+                break
+
+        quotient: int = num1 // num2  # Integer division
+        remainder: int = num1 % num2  # Modulo operation
+
+        print(f"✅ The result of the division is: {quotient} with a remainder of {remainder}\n")
+
+        # Ask the user if they want to restart
+        restart = input("🔄 Do you want to calculate again? (yes/no): ").strip().lower()
+        if restart in ["n", "no"]:
+            print("👋 Thank you for using the calculator! Goodbye!")
+            break  # Exit the loop and end the program
+        elif restart in ["y", "yes"]:
+            continue  # Restart the loop
+        else:
+            print("❌ Invalid input! Exiting program.")
+            break  # Invalid input, exit program
+
+if __name__ == "__main__":
+    remainder()

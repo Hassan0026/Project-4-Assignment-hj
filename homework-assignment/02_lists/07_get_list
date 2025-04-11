@@ -1,0 +1,24 @@
+print("🔹 Welcome to the Dynamic List Creator 🔹")
+
+def get_list():
+    """Continuously asks the user to enter values into a list until they press Enter."""
+    lst = []
+
+    while True:
+        val = input("➤ Enter a value to add to the list (or press Enter to finish): ")
+        if val == "":  # Exit condition
+            break
+        lst.append(val)
+
+    return lst
+
+def main():
+    lst = get_list()
+
+    if lst:  # Ensure the list is not empty before printing
+        print("\n✅ Here is your final list:", lst)
+    else:
+        print("\n⚠️ No values entered. The list is empty!")
+
+if __name__ == "__main__":
+    main()

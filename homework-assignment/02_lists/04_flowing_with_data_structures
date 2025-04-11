@@ -1,0 +1,37 @@
+"""
+This program demonstrates the concept of **mutability** in Python by modifying
+a list inside a function. The function adds three copies of the provided
+input message to the list **without returning it**.
+"""
+
+# Display program title
+print("\n🔹 Welcome to the 'Flowing with Data Structures' Program 🔹\n")
+
+def add_copies(target_list: list, data: str) -> None:
+    """
+    Adds three copies of 'data' to the given list.
+
+    :param target_list: List where data will be added.
+    :param data: The message to be appended three times.
+    """
+    for _ in range(3):
+        target_list.append(data)
+
+def main():
+    """
+    📌 Main function to execute the program.
+    - Takes user input for a message.
+    - Displays the list before and after modification.
+    - Demonstrates how lists (mutable objects) are modified within functions.
+    """
+    message: str = input("✍️ Enter a message to copy: ").strip()
+    data_list: list[str] = []  # Initialize an empty list
+
+    print("\n📝 List before modification:", data_list)
+    add_copies(data_list, message)  # Modify list inside the function
+    print("✅ List after modification:", data_list)
+
+    print("\n🎯 The list was modified inside the function without returning it! 🎯")
+
+if __name__ == "__main__":
+    main()

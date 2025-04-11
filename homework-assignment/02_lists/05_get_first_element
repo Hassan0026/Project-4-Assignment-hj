@@ -1,0 +1,25 @@
+print("🔹 Welcome to the First Element Finder 🔹")
+
+def get_first_element(lst):
+    """Prints the first element of a provided list."""
+    print(f"✅ The first element in the list is: {lst[0]}")
+
+def get_lst():
+    """Prompts the user to enter elements into a list one by one."""
+    lst = []
+    while True:
+        element = input("Enter an element to add to the list (or press Enter to finish): ")
+        if element == "":  # Exit condition
+            break
+        lst.append(element)
+    return lst
+
+def main():
+    lst = get_lst()
+    if lst:  # Ensure list is not empty before accessing index 0
+        get_first_element(lst)
+    else:
+        print("⚠️ No elements were entered. The list is empty!")
+
+if __name__ == "__main__":
+    main()

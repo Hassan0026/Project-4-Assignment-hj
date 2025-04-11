@@ -1,0 +1,19 @@
+# 📌 Number of even numbers to generate
+NUM_EVEN_NUMBERS = 20
+
+def print_even_numbers():
+    """Prints the first 20 even numbers."""
+    print("🔢 First", NUM_EVEN_NUMBERS, "Even Numbers 🔢\n")
+
+    even_numbers = [str(2 * i) for i in range(NUM_EVEN_NUMBERS)]  # Generate and convert to string
+    print(" ".join(even_numbers))  # Print in one line
+
+    print("\n✅ Successfully printed the first", NUM_EVEN_NUMBERS, "even numbers.")
+
+# 🚀 Main Function
+def main():
+    print_even_numbers()
+
+# 🔥 Run the program
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,72 @@
+
+def get_user_numbers():
+    """
+    Continuously prompts the user to enter numbers and stores them in a list.
+    Stops when the user enters a blank line and returns the list.
+    """
+    numbers = []
+    while True:
+        user_input = input("🔢 Enter a number (or press Enter to finish): ").strip()
+
+        if user_input == "":  # Stop when the user enters a blank line
+            break
+
+        if user_input.isdigit():  # Ensure input is a valid number
+            numbers.append(int(user_input))
+        else:
+            print("❌ Invalid input! Please enter a valid number.")
+
+    return numbers
+
+def count_numbers(numbers):
+    """
+    Counts the occurrences of each number in the list using a dictionary.
+    Returns the dictionary with counts.
+    """
+    count_dict = {}
+    for num in numbers:
+        count_dict[num] = count_dict.get(num, 0) + 1  # Increment count for each number
+
+    return count_dict
+
+def print_counts(count_dict):
+    """
+    Prints each number along with how many times it appears.
+    """
+    print("\n📊 Number Frequency Count:")
+    for num, count in sorted(count_dict.items()):
+        print(f"✅ {num} appears {count} time(s).")
+
+def main():
+    """
+    Runs the full program:
+    1️⃣ Gets numbers from the user
+    2️⃣ Counts occurrences using a dictionary
+    3️⃣ Displays the results
+    4️⃣ Allows the user to restart or exit
+    """
+    print("🎯 Welcome to the Number Frequency Counter!\n")
+
+    while True:
+        numbers = get_user_numbers()
+
+        if not numbers:  # If no numbers were entered
+            print("⚠️ No numbers entered. Exiting program.")
+            break
+
+        count_dict = count_numbers(numbers)
+        print_counts(count_dict)
+
+        # Ask the user if they want to restart
+        while True:
+            restart = input("\n🔄 Would you like to analyze another set of numbers? (yes or no): ").strip().lower()
+            if restart in ["yes", "y"]:
+                break  # Restart the loop
+            elif restart in ["no", "n"]:
+                print("\n👋 Thanks for using the Number Frequency Counter! Have a great day! 😊")
+                return  # Exit the program
+            else:
+                print("❌ Invalid input! Please enter 'yes' or 'no'.")
+
+if __name__ == "__main__":
+    main()

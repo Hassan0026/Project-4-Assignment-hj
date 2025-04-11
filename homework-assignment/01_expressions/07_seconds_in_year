@@ -1,0 +1,48 @@
+## Program: Seconds in a Year Calculator
+
+
+"""
+This program calculates the number of seconds in a year
+by multiplying days, hours, minutes, and seconds.
+
+It also provides an option to calculate seconds for a leap year (366 days).
+"""
+
+# Constants
+DAYS_IN_YEAR: int = 365
+DAYS_IN_LEAP_YEAR: int = 366
+HOURS_PER_DAY: int = 24
+MINUTES_PER_HOUR: int = 60
+SECONDS_PER_MINUTE: int = 60
+
+def calculate_seconds(days: int) -> int:
+    """Calculates the total number of seconds in the given number of days."""
+    return days * HOURS_PER_DAY * MINUTES_PER_HOUR * SECONDS_PER_MINUTE
+
+def main():
+    """Main function to calculate seconds in a normal or leap year."""
+    print("\n⏳ Welcome to the Seconds in a Year Calculator! ⏳")
+
+    while True:
+        # Ask the user if they want normal year or leap year
+        choice = input("\nDo you want to calculate for a normal year (365 days) or a leap year (366 days)? (normal/leap): ").strip().lower()
+
+        if choice == "leap":
+            total_seconds = calculate_seconds(DAYS_IN_LEAP_YEAR)
+            print(f"\n✅ There are {total_seconds:,} seconds in a leap year! 🌟")
+        elif choice == "normal":
+            total_seconds = calculate_seconds(DAYS_IN_YEAR)
+            print(f"\n✅ There are {total_seconds:,} seconds in a normal year! 🕒")
+        else:
+            print("❌ Invalid choice! Please enter 'normal' or 'leap'.")
+            continue  # Ask again if invalid
+
+        # Ask user if they want to calculate again
+        restart = input("\n🔄 Would you like to calculate again? (yes/y or no/n): ").strip().lower()
+        if restart not in ["yes", "y"]:
+            print("\n👋 Thank you for using the calculator! Have a great day! 😊")
+            break  # Exit the loop
+
+# Run the program
+if __name__ == "__main__":
+    main()

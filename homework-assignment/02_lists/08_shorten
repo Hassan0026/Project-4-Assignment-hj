@@ -1,0 +1,39 @@
+# Program: list_shortener
+
+
+print("🔹 Welcome to the List Shortener Program 🔹")
+
+MAX_LENGTH: int = 3
+
+def shorten(lst):
+    """
+    Removes elements from the end of lst until it contains MAX_LENGTH items.
+    Prints each removed item.
+    """
+    while len(lst) > MAX_LENGTH:
+        removed_element = lst.pop()
+        print(f"🗑️ Removed: {removed_element}")
+
+def get_lst():
+    """
+    Continuously prompts the user to enter elements into a list.
+    Stops when the user presses Enter without typing anything.
+    """
+    lst = []
+    while True:
+        element = input("➤ Enter an element to add to the list (or press Enter to stop): ")
+        if element == "":
+            break
+        lst.append(element)
+
+    return lst
+
+def main():
+    lst = get_lst()
+
+    print("\n📋 Original List:", lst)
+    shorten(lst)
+    print("✅ Final List after shortening:", lst)
+
+if __name__ == "__main__":
+    main()
